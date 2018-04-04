@@ -3,6 +3,7 @@ package ha2;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -51,7 +52,7 @@ public class GradeSystem {
 		scanner=sc;
 		avg=new double[6];
 		weight=new double[] {0.1,0.1,0.1,0.3,0.4};
-		df = new DecimalFormat("##");
+		df = new DecimalFormat("##.00");
 		try {
 			setMap();
 		} catch (IOException e) {
@@ -71,7 +72,8 @@ public class GradeSystem {
 //	}
 	private void setMap() throws IOException {
 		int total=0;
-		FileReader fr = new FileReader("test/input.txt");
+		FileReader fr = new FileReader("src/testcase");
+		//FileReader fr = new FileReader("src/imput");
 		BufferedReader br = new BufferedReader(fr);
 		while (br.ready()) {
 			String[] str=br.readLine().split(" ");
@@ -115,10 +117,11 @@ public class GradeSystem {
 		double total=0;
 		for(int i=0;i<5;i++)
 			total+=user.grades[i]*weight[i];
-		total=Double.parseDouble(df.format(total));
+		BigDecimal bd= new BigDecimal(total);   
+		bd=bd.setScale(0, BigDecimal.ROUND_HALF_UP);
 //		user.countEachTotal(weight);
-		if(total>59)System.out.println("      total grade : "+total);
-		else System.out.println("      total grade : "+total+"*");
+		if(total>59)System.out.println("      total grade : "+bd);
+		else System.out.println("      total grade : "+bd+"*");
 	}
 	/*method showRank
 	 * 
@@ -161,9 +164,11 @@ public class GradeSystem {
 		double t=0;
 		for(int i=0;i<5;i++)
 			t+=avg[i]*weight[i];
+		BigDecimal bd= new BigDecimal(t);   
+		bd=bd.setScale(2, BigDecimal.ROUND_HALF_UP);
 		System.out.print("lab1 : "+avg[0]+"\nlab2 : "+avg[1]+"\nlab3 : "
 				+avg[2]+"\nmid-term : "+avg[3]+"\nfinal exam : "+avg[4]
-				+"\ntotal : "+Double.parseDouble(df.format(t)));
+				+"\ntotal : "+bd);
 	}
 	/*method changeWeight
 	 * 

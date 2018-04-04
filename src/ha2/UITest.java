@@ -29,10 +29,10 @@ public class UITest {
 		System.setIn(in);
 		System.setOut(new PrintStream(out));
 		u.waitForStart();
-		assertEquals("輸入ID或 Q (結束使用)？\n\r\n"+
-					"Wrong input!! Please try again or \"Q\" for leave\n\r\n"+
-					"輸入ID或 Q (結束使用)？\n\r\n"+
-					"結束了\n\r\n"
+		assertEquals("輸入ID或 Q (結束使用)？\r\n"+
+					"Wrong input!! Please try again or \"Q\" for leave\r\n"+
+					"輸入ID或 Q (結束使用)？\r\n"+
+					"結束了\r\n"
 				, out.toString());
 	}
 	@Test
@@ -42,12 +42,12 @@ public class UITest {
 		System.setIn(in);
 		System.setOut(new PrintStream(out));
 		u.waitForStart();
-		assertEquals("輸入ID或 Q (結束使用)？\n\r\n"+
-				"Wellcome 李威廷\n\r\n"+
+		assertEquals("輸入ID或 Q (結束使用)？\r\n"+
+				"Welcome 李威廷\r\n"+
 				"\n輸入指令 \n1) G 顯示成績 (Grade)\n2) R 顯示排名 (Rank)"
 				+ "\n3) A 顯示平均 (Average)\n4) W 更新配分 (Weight)\n"
 				+ "5) E 離開選單 (Exit)\r\n"+
-				"Wrong input!! Please try again or \"E\" for leave\n\r\n"+
+				"Wrong input!! Please try again or \"E\" for leave\r\n"+
 				"\n輸入指令 \n1) G 顯示成績 (Grade)\n2) R 顯示排名 (Rank)"
 				+ "\n3) A 顯示平均 (Average)\n4) W 更新配分 (Weight)\n"
 				+ "5) E 離開選單 (Exit)\r\n"+
@@ -55,8 +55,8 @@ public class UITest {
 				"\n輸入指令 \n1) G 顯示成績 (Grade)\n2) R 顯示排名 (Rank)"
 				+ "\n3) A 顯示平均 (Average)\n4) W 更新配分 (Weight)\n"
 				+ "5) E 離開選單 (Exit)\r\n"+
-				"輸入ID或 Q (結束使用)？\n\r\n"+
-				"結束了\n\r\n"
+				"輸入ID或 Q (結束使用)？\r\n"+
+				"結束了\r\n"
 				, out.toString());
 	}
 }

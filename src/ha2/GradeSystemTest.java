@@ -128,9 +128,9 @@ public class GradeSystemTest {
 		System.setIn(in);
 		System.setOut(new PrintStream(out));
 		g.changeWeight();
-		assertEquals("old:\n\r\nlab1 = 10.0%\nlab2 = 10.0%\nlab3 = 10.0%\nmid-term = 30.0%\nfinal exam = 40.0%\n\r\n"+
-				"recheck?:\n\r\nlab1 = 20.0%\nlab2 = 20.0%\nlab3 = 20.0%\nmid-term = 20.0%\nfinal exam = 20.0%\n\r\n"+
-				"以上正確嗎? Y (Yes) 或 N (No)\n\r\n"
+		assertEquals("old:\r\nlab1 = 10.0%\nlab2 = 10.0%\nlab3 = 10.0%\nmid-term = 30.0%\nfinal exam = 40.0%\r\n"+
+				"recheck?:\r\nlab1 = 20.0%\nlab2 = 20.0%\nlab3 = 20.0%\nmid-term = 20.0%\nfinal exam = 20.0%\r\n"+
+				"以上正確嗎? Y (Yes) 或 N (No)\r\n"
 				, out.toString());
 	}
 	/*
@@ -143,12 +143,12 @@ public class GradeSystemTest {
 		System.setIn(in);
 		System.setOut(new PrintStream(out));
 		g.changeWeight();
-		assertEquals("old:\n\r\nlab1 = 10.0%\nlab2 = 10.0%\nlab3 = 10.0%\nmid-term = 30.0%\nfinal exam = 40.0%\n\r\n"+
-				"recheck?:\n\r\nlab1 = 20.0%\nlab2 = 20.0%\nlab3 = 20.0%\nmid-term = 30.0%\nfinal exam = 10.0%\n\r\n"+
-				"以上正確嗎? Y (Yes) 或 N (No)\n\r\n"+
-				"old:\n\r\nlab1 = 10.0%\nlab2 = 10.0%\nlab3 = 10.0%\nmid-term = 30.0%\nfinal exam = 40.0%\n\r\n"+
-				"recheck?:\n\r\nlab1 = 20.0%\nlab2 = 20.0%\nlab3 = 20.0%\nmid-term = 20.0%\nfinal exam = 20.0%\n\r\n"+
-				"以上正確嗎? Y (Yes) 或 N (No)\n\r\n"
+		assertEquals("old:\r\nlab1 = 10.0%\nlab2 = 10.0%\nlab3 = 10.0%\nmid-term = 30.0%\nfinal exam = 40.0%\r\n"+
+				"recheck?:\r\nlab1 = 20.0%\nlab2 = 20.0%\nlab3 = 20.0%\nmid-term = 30.0%\nfinal exam = 10.0%\r\n"+
+				"以上正確嗎? Y (Yes) 或 N (No)\r\n"+
+				"old:\r\nlab1 = 10.0%\nlab2 = 10.0%\nlab3 = 10.0%\nmid-term = 30.0%\nfinal exam = 40.0%\r\n"+
+				"recheck?:\r\nlab1 = 20.0%\nlab2 = 20.0%\nlab3 = 20.0%\nmid-term = 20.0%\nfinal exam = 20.0%\r\n"+
+				"以上正確嗎? Y (Yes) 或 N (No)\r\n"
 				, out.toString());
 	}
 }

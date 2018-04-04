@@ -62,14 +62,7 @@ public class GradeSystem {
 		c=new Mycompare();
 		sortmap();
 		weight_update=false;
-		//selftest();
 	}
-//	private void selftest() {
-//		for(Entry<String, Grades> a:map.entrySet()) {
-//			Grades tmp=a.getValue();
-//			System.out.println(a.getKey()+" : "+tmp.name+" "+tmp.grades[0]+" "+tmp.rank+"\n");
-//		}
-//	}
 	private void setMap() throws IOException {
 		int total=0;
 		FileReader fr = new FileReader("src/testcase");
@@ -119,7 +112,6 @@ public class GradeSystem {
 			total+=user.grades[i]*weight[i];
 		BigDecimal bd= new BigDecimal(total);   
 		bd=bd.setScale(0, BigDecimal.ROUND_HALF_UP);
-//		user.countEachTotal(weight);
 		if(total>59)System.out.println("      total grade : "+bd);
 		else System.out.println("      total grade : "+bd+"*");
 	}
@@ -189,19 +181,15 @@ public class GradeSystem {
 		double t[]=new double[5];
 		Scanner s=new Scanner(System.in);
 		while(keep) {
-			System.out.println("old:\n");
+			System.out.println("old:");
 			printWeight(weight);
 			for(int i=0;i<5;i++) {
-				//t[i]=scanner.nextInt()*0.01;
 				t[i]=s.nextInt()*0.01;
 			}
-			
-			System.out.println("recheck?:\n");
+			System.out.println("recheck?:");
 			printWeight(t);
-			
 			while(true) {
-				System.out.println("以上正確嗎? Y (Yes) 或 N (No)\n");
-				//tmp=scanner.next();
+				System.out.println("以上正確嗎? Y (Yes) 或 N (No)");
 				tmp=s.next();
 				if(tmp.equals("Y")) {
 					keep=false;
@@ -213,7 +201,6 @@ public class GradeSystem {
 				}
 			}
 		}
-		//TODO
 		updateweight(t);
 		
 	}
@@ -229,7 +216,7 @@ public class GradeSystem {
 	private void printWeight(double[] w) {
 		System.out.println("lab1 = "+w[0]*100+"%\nlab2 = "
 	+w[1]*100+"%\nlab3 = "+w[2]*100+"%\nmid-term = "+w[3]*100
-	+"%\nfinal exam = "+w[4]*100+"%\n");
+	+"%\nfinal exam = "+w[4]*100+"%");
 	}
 	/*method checkID
 	 * 

@@ -47,7 +47,7 @@ public class GradeSystem {
 	 */
 	public GradeSystem(Scanner sc) {
 		scanner=sc;
-		df = new DecimalFormat("##.00");
+		df = new DecimalFormat("##");
 		try {
 			setMap();
 		} catch (IOException e) {
@@ -238,11 +238,11 @@ public class GradeSystem {
 				tb+=gb.grades[i]*weight[i];
 			}
 			if(ta>tb)
-				return 1;
+				return -1;
 			else if(ta.equals(tb))
 				return 0;
 			else
-				return -1;
+				return 0;
 		}
 		
 	}

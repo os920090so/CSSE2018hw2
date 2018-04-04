@@ -37,13 +37,17 @@ public class UserInterface {
 	 * 3. else if input== legal user ID , set nowuser=ID and call UserInterface::sayHello()
 	 * 4.check legal by call GradeSystem::checkID(String id)
 	 * 5.else puts(wrong id) get input again
+	 * 
+	 * time complexity:O(nlgn)
 	 */
 	public void waitForStart() {
 		while(true) {
 			System.out.println("輸入ID或 Q (結束使用)？\n");
 			tmp=reader.next();
-			if(tmp.equals("Q"))
+			if(tmp.equals("Q")) {
+				System.out.println("結束了\n");
 				return;
+			}
 			else if(gsys.checkID(tmp)) {
 				nowuser=tmp;
 				sayHello();
@@ -60,7 +64,7 @@ public class UserInterface {
 	 * 2.call UserInterface::waitForCmd()
 	 * 
 	 */
-	public void sayHello() {
+	private void sayHello() {
 		System.out.println("Wellcome "+gsys.getnamebyID(nowuser)+"\n");
 		waitForCmd();
 	}
@@ -76,7 +80,7 @@ public class UserInterface {
 	 * 7.case E return 
 	 * 8.default puts(wrong command) loop to get input again
 	 */
-	public void waitForCmd() {
+	private void waitForCmd() {
 		while(true){
 			System.out.println("\n輸入指令 \n1) G 顯示成績 (Grade)\n2) R 顯示排名 (Rank)"
 					+ "\n3) A 顯示平均 (Average)\n4) W 更新配分 (Weight)\n"

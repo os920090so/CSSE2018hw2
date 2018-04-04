@@ -187,17 +187,22 @@ public class GradeSystem {
 		String tmp;
 		Boolean keep=true;
 		double t[]=new double[5];
+		Scanner s=new Scanner(System.in);
 		while(keep) {
 			System.out.println("old:\n");
 			printWeight(weight);
 			for(int i=0;i<5;i++) {
-				t[i]=scanner.nextInt()*0.01;
+				//t[i]=scanner.nextInt()*0.01;
+				t[i]=s.nextInt()*0.01;
 			}
+			
 			System.out.println("recheck?:\n");
 			printWeight(t);
+			
 			while(true) {
 				System.out.println("以上正確嗎? Y (Yes) 或 N (No)\n");
-				tmp=scanner.next();
+				//tmp=scanner.next();
+				tmp=s.next();
 				if(tmp.equals("Y")) {
 					keep=false;
 					break;
@@ -210,6 +215,7 @@ public class GradeSystem {
 		}
 		//TODO
 		updateweight(t);
+		
 	}
 	private void updateweight(double []t) {
 		Boolean same=true;

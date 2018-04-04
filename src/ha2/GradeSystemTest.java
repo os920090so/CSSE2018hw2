@@ -2,6 +2,7 @@ package ha2;
 
 import static org.junit.Assert.*;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.Scanner;
@@ -122,13 +123,32 @@ public class GradeSystemTest {
 	 */
 	@Test
 	public void changeWeightTest1() {
-		//
+		ByteArrayInputStream in = new ByteArrayInputStream("20 20 20 20 20 Y ".getBytes());
+		ByteArrayOutputStream out = new ByteArrayOutputStream();
+		System.setIn(in);
+		System.setOut(new PrintStream(out));
+		g.changeWeight();
+		assertEquals("old:\n\r\nlab1 = 10.0%\nlab2 = 10.0%\nlab3 = 10.0%\nmid-term = 30.0%\nfinal exam = 40.0%\n\r\n"+
+				"recheck?:\n\r\nlab1 = 20.0%\nlab2 = 20.0%\nlab3 = 20.0%\nmid-term = 20.0%\nfinal exam = 20.0%\n\r\n"+
+				"以上正確嗎? Y (Yes) 或 N (No)\n\r\n"
+				, out.toString());
 	}
 	/*
 	 * 
 	 */
 	@Test
 	public void changeWeightTest2() {
-		//
+		ByteArrayInputStream in = new ByteArrayInputStream("20 20 20 30 10 N 20 20 20 20 20 Y ".getBytes());
+		ByteArrayOutputStream out = new ByteArrayOutputStream();
+		System.setIn(in);
+		System.setOut(new PrintStream(out));
+		g.changeWeight();
+		assertEquals("old:\n\r\nlab1 = 10.0%\nlab2 = 10.0%\nlab3 = 10.0%\nmid-term = 30.0%\nfinal exam = 40.0%\n\r\n"+
+				"recheck?:\n\r\nlab1 = 20.0%\nlab2 = 20.0%\nlab3 = 20.0%\nmid-term = 30.0%\nfinal exam = 10.0%\n\r\n"+
+				"以上正確嗎? Y (Yes) 或 N (No)\n\r\n"+
+				"old:\n\r\nlab1 = 10.0%\nlab2 = 10.0%\nlab3 = 10.0%\nmid-term = 30.0%\nfinal exam = 40.0%\n\r\n"+
+				"recheck?:\n\r\nlab1 = 20.0%\nlab2 = 20.0%\nlab3 = 20.0%\nmid-term = 20.0%\nfinal exam = 20.0%\n\r\n"+
+				"以上正確嗎? Y (Yes) 或 N (No)\n\r\n"
+				, out.toString());
 	}
 }

@@ -41,7 +41,7 @@ public class UserInterface {
 	 * time complexity:O(nlgn)
 	 */
 	public void waitForStart() {
-		reader = new Scanner(System.in);
+		//reader = new Scanner(System.in);
 		while(true) {
 			System.out.println("輸入ID或 Q (結束使用)？");
 			tmp=reader.next();

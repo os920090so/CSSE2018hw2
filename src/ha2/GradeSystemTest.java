@@ -11,12 +11,26 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+/*
+ * class GradeSystemTest
+ * 
+ * 測試GradeSystemTest這個test的所有public method
+ * 
+ * 包括:
+ * showGrade(String id)
+ * showRank(String id)
+ * showAverage(String id)
+ * getnamebyID(String id)
+ * checkID(String id)
+ * changeWeight(String id)
+ * 
+ */
 public class GradeSystemTest {
 	GradeSystem g=null;
 	Scanner sc=null;
 	@Before
 	public void setUp() throws Exception {
-		sc=new Scanner(System.in);
+		//sc=new Scanner(System.in);
 		g=new GradeSystem(sc);
 	}
 
@@ -80,7 +94,7 @@ public class GradeSystemTest {
 		assertEquals("王淳排名:3\r\n", str.toString());
 	}
 	/*
-	 * 
+	 * 顯示全班平均
 	 */
 	@Test
 	public void showAverageTest() {
@@ -119,7 +133,7 @@ public class GradeSystemTest {
 		assertEquals(false, g.checkID("985002066"));
 	}
 	/*
-	 * 
+	 * 更改weight成 20 20 20 20 20
 	 */
 	@Test
 	public void changeWeightTest1() {
@@ -134,7 +148,9 @@ public class GradeSystemTest {
 				, out.toString());
 	}
 	/*
-	 * 
+	 * 更改weight成 20 20 20 30 10
+	 * 反悔
+	 * 更改weight成 20 20 20 20 20
 	 */
 	@Test
 	public void changeWeightTest2() {

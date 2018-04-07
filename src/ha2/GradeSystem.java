@@ -179,18 +179,24 @@ public class GradeSystem {
 		String tmp;
 		Boolean keep=true;
 		double t[]=new double[5];
-		Scanner s=new Scanner(System.in);
+		//Scanner s=new Scanner(System.in);
+		
+		if(scanner==null) {
+			scanner=new Scanner(System.in);	
+		}
+			
 		while(keep) {
 			System.out.println("old:");
 			printWeight(weight);
 			for(int i=0;i<5;i++) {
-				t[i]=s.nextInt()*0.01;
+				String s=scanner.next();
+				t[i]=Integer.valueOf(s)*0.01;
 			}
 			System.out.println("recheck?:");
 			printWeight(t);
 			while(true) {
 				System.out.println("以上正確嗎? Y (Yes) 或 N (No)");
-				tmp=s.next();
+				tmp=scanner.next();
 				if(tmp.equals("Y")) {
 					keep=false;
 					break;
